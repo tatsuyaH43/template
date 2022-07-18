@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "coenraads.bracket-pair-colorizer",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "redhat.vscode-yaml",
+    "stylelint.vscode-stylelint",
+    //typescirptのimport関連
+    "pmneo.tsimporter", // TypeScript Importer コンポーネント名書けば勝手にimportしてくれます
+    "mike-co.import-sorter", // Sort Importでimportを自動でsortしてくれる
+    "stringham.move-ts", // Move TypeScript files and update relative imports パス変わったら、パス変わったものをimportしている箇所もパス変わってくれます
+    "stringham.copy-with-imports" // どこかからコピペしたら自動でimportしてくれる
+  ],
+  "unwantedRecommendations": ["hex-ci.stylelint-plus"]
+}

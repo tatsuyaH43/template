@@ -1,0 +1,76 @@
+/* base color
+--------------------------------------------------------- */
+$color-main-01: #183d9f;
+
+$text-black-01: #333333;
+
+$colors: (
+  'black': $text-black-01,
+  // 'red': $maincolor-emphasis-red-02,
+);
+
+$COLOR-UTILITY-TXTLINK: #003e9f;
+
+/* font-family
+--------------------------------------------------------- */
+$FONTFAMILY-BASIC: YakuHanJP, Arial, 'Hiragino Sans', 'Noto Sans JP', 'ヒラギノ角ゴシック', 'ヒラギノ角ゴ Pro W3',
+  'メイリオ', Meiryo, sans-serif;
+
+$LINEHEIGHT-BASIC: 1.5;
+
+/* width
+--------------------------------------------------------- */
+$WIDTH-PC: 1023px;
+
+/* fontsize
+--------------------------------------------------------- */
+$fontsize-10: 10px;
+$fontsize-12: 12px;
+$fontsize-14: 14px;
+$fontsize-16: 16px;
+$fontsize-18: 18px;
+$fontsize-20: 20px;
+$fontsize-22: 22px;
+$fontsize-24: 24px;
+$fontsize-26: 26px;
+$fontsize-28: 28px;
+$fontsizes: (
+  10: $fontsize-10,
+  12: $fontsize-12,
+  14: $fontsize-14,
+  16: $fontsize-16,
+  18: $fontsize-18,
+  20: $fontsize-20,
+  22: $fontsize-22,
+  24: $fontsize-24,
+  26: $fontsize-26,
+  28: $fontsize-28,
+);
+/* spacing
+--------------------------------------------------------- */
+$spacing-auto: auto;
+$spacing-0: 0;
+$spacing-8: 8px;
+$spacing-16: 16px;
+$spacing-24: 24px;
+$spacing-32: 32px;
+$spacing-40: 40px;
+$spacing-48: 48px;
+$spacing-56: 56px;
+$spacing-80: 80px;
+$spacings: (
+  'auto': $spacing-auto,
+  0: $spacing-0,
+  8: $spacing-8,
+  16: $spacing-16,
+  24: $spacing-24,
+  32: $spacing-32,
+  40: $spacing-40,
+  48: $spacing-48,
+  56: $spacing-56,
+  80: $spacing-80,
+);
+
+/* transition
+--------------------------------------------------------- */
+$TRANSITIONTIME: 0.3s;

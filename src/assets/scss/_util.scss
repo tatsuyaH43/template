@@ -1,0 +1,122 @@
+/**
+* text-align
+*/
+.u-text-left {
+  text-align: left;
+}
+.u-text-center {
+  text-align: center;
+}
+.u-text-right {
+  text-align: right;
+}
+/**
+* font-weight
+*/
+.u-text-bold {
+  @include u-fw-b;
+}
+.u-text-normal {
+  @include u-fw-n;
+}
+.u-text-bold-sp {
+  @include sp {
+    @include u-fw-b;
+  }
+}
+/**
+* colors
+*/
+@each $colorName, $color in $colors {
+  .u-text-#{$colorName} {
+    color: $color;
+  }
+}
+
+/**
+* font-size
+*/
+@each $fonfsizeName, $fontsize in $fontsizes {
+  .u-text-#{$fonfsizeName} {
+    font-size: #{$fontsize};
+  }
+}
+
+/**
+* display
+*/
+.u-dn-pc {
+  @include pc {
+    display: none !important;
+  }
+}
+
+.u-dn-sp {
+  @include sp {
+    display: none !important;
+  }
+}
+
+.u-dn {
+  display: none !important;
+}
+
+.u-dn-all {
+  display: none !important;
+}
+
+/* margin
+   padding
+--------------------------------------------------------- */
+@each $spacingName, $spacing in $spacings {
+  .u-mt-#{$spacingName} {
+    margin-top: #{$spacing};
+  }
+
+  // paddingはautoを除外
+  // @if $spacingName != 'auto' {
+  //   .u-pt-#{$spacingName} {
+  //     padding-top: #{$spacing};
+  //   }
+  //   .u-pr-#{$spacingName} {
+  //     padding-right: #{$spacing};
+  //   }
+  //   .u-pb-#{$spacingName} {
+  //     padding-bottom: #{$spacing};
+  //   }
+  //   .u-pl-#{$spacingName} {
+  //     padding-left: #{$spacing};
+  //   }
+  // }
+}
+@each $spacingName, $spacing in $spacings {
+  .u-mtsp-#{$spacingName} {
+    @include sp {
+      margin-top: #{$spacing};
+    }
+  }
+
+  // paddingはautoを除外
+  // @if $spacingName != 'auto' {
+  //   .u-ptsp-#{$spacingName} {
+  //     @include sp {
+  //       padding-top: #{$spacing};
+  //     }
+  //   }
+  //   .u-prsp-#{$spacingName} {
+  //     @include sp {
+  //       padding-right: #{$spacing};
+  //     }
+  //   }
+  //   .u-pbsp-#{$spacingName} {
+  //     @include sp {
+  //       padding-bottom: #{$spacing};
+  //     }
+  //   }
+  //   .u-plsp-#{$spacingName} {
+  //     @include sp {
+  //       padding-left: #{$spacing};
+  //     }
+  //   }
+  // }
+}

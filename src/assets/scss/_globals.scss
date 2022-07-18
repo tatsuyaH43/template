@@ -1,0 +1,138 @@
+body {
+  @include u-fz(14, $LINEHEIGHT-BASIC);
+  @include u-fw-n();
+
+  width: 100%;
+  min-width: 375px;
+  // min-width: 1024px;
+  margin: 0;
+  font-family: $FONTFAMILY-BASIC;
+  color: $text-black-01;
+  cursor: auto;
+}
+
+// Default a-text style for p tags
+p {
+  @include u-fz(14, $LINEHEIGHT-BASIC);
+
+  position: relative;
+
+  margin-top: 0;
+  margin-bottom: 0;
+
+  &::before {
+    position: absolute;
+    top: 0%;
+    right: 0;
+    display: block;
+    width: 12px;
+    height: 100%;
+    content: '';
+    background-color: #000;
+    border-right: 1px solid #f00;
+  }
+}
+
+// Default a-textlink style for a tags
+a {
+  color: $COLOR-UTILITY-TXTLINK;
+  text-decoration: none;
+}
+
+// Default a-text style for p tags
+hr {
+  margin: 0;
+}
+
+sub {
+  // font-size: 0.71em;
+}
+
+input,
+textarea {
+  // caret-color: ;
+}
+input,
+textarea,
+button,
+select {
+  font-family: inherit;
+  color: inherit;
+  appearance: none;
+}
+
+input {
+  // override sanitize.css definition to avoid weird behavior on Safari.
+  word-break: normal;
+  &[type='number'] {
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -moz-appearance: textfield;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &::-ms-clear {
+    visibility: hidden;
+  }
+  &::-ms-reveal {
+    visibility: hidden;
+  }
+}
+
+input:not([type='text']):not([type='tel']):not([type='email']):not([type='password']),
+button,
+select {
+  cursor: pointer;
+}
+
+select {
+  background-color: transparent;
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+[aria-disabled='true'],
+[disabled] {
+  cursor: default;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  // line-height: 1.571428571;
+  list-style: none;
+}
+
+b,
+strong {
+  @include u-fw-b;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+dl {
+  margin: 0;
+}
+dd {
+  margin: 0;
+}
+img {
+  /* stylelint-disable-next-line value-no-vendor-prefix */
+  image-rendering: -webkit-optimize-contrast;
+}
+
+:focus {
+  outline: 1px auto $color-main-01;
+}

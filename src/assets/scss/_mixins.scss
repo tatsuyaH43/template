@@ -1,0 +1,188 @@
+/*
+🌟 common mixins
+*/
+/*
+convert line-height px values into relative value.
+px-based values can be extracted from Abstract. Always use this to define line-height.
+If cutLineSpace=true, the spacing the top of first-line & the bottom of last-line caused by line-height will be killed.
+--------------------------------------------------------- */
+@mixin u-fz($fontSizePx: false, $lineHeight: false, $cutLineSpace: false) {
+  @if ($fontSizePx) {
+    font-size: $fontSizePx + px;
+  }
+
+  @if ($lineHeight) {
+    line-height: $lineHeight;
+  }
+
+  @if ($cutLineSpace and $lineHeight) {
+    &:before,
+    &:after {
+      display: block;
+      overflow: hidden;
+      content: '';
+    }
+
+    $_marginVal: ($lineHeight * $fontSizePx - $fontSizePx) * -0.5;
+
+    &:before {
+      margin-bottom: $_marginVal + px;
+    }
+    &:after {
+      margin-top: $_marginVal + px;
+    }
+  }
+}
+
+@mixin u-fw-b {
+  font-weight: 600;
+}
+
+@mixin u-fw-n {
+  font-weight: 300;
+}
+
+@mixin u-ff-basic {
+  font-family: $FONTFAMILY-BASIC;
+}
+
+/*
+ chrome用styleのmixin
+*/
+@mixin chrome {
+  body.is-chrome & {
+    @content;
+  }
+}
+/*
+ firefox用styleのmixin
+*/
+@mixin firefox {
+  body.is-firefox & {
+    @content;
+  }
+}
+/*
+ safari用styleのmixin
+*/
+@mixin safari {
+  body.is-safari & {
+    @content;
+  }
+}
+/*
+ ios safari用styleのmixin
+*/
+@mixin ios-safari {
+  body.is-safari.is-ios & {
+    @content;
+  }
+}
+/*
+ chromiumedge用styleのmixin
+*/
+@mixin chromiumedge {
+  body.is-chromiumedge & {
+    @content;
+  }
+}
+/*
+ ios用styleのmixin
+*/
+@mixin ios {
+  body.is-ios & {
+    @content;
+  }
+}
+/* Use this mixin when you make hover behavior
+--------------------------------------------------------- */
+@mixin hover() {
+  &:hover,
+  &:active {
+    @content;
+  }
+}
+
+@mixin hoverTextEffect() {
+  color: $maincolor-emphasis-orange-01;
+  text-decoration: underline;
+}
+
+@mixin hoverImgEffect() {
+  opacity: 0.5;
+}
+@mixin hoverImgEffectDuration() {
+  transition: opacity $TRANSITIONTIME ease;
+}
+/*
+* hoverText
+*/
+@mixin hoverText() {
+  @include hover {
+    @include hoverTextEffect;
+  }
+}
+/*
+* hoverFade
+*/
+@mixin hoverFade() {
+  @include hoverImgEffectDuration;
+  @include hover {
+    @include hoverImgEffect;
+  }
+}
+
+/*
+* ellipsisInline
+* 3点リーダー 1行の際
+*/
+@mixin ellipsisInline {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*
+* ellipsisBlock
+* 3点リーダー
+* IEでは疑似要素で3点リーダーを入れます
+*/
+@mixin ellipsisBlock($lines: 2) {
+  @if $lines == 1 {
+    @include ellipsisInline;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/*
+* pc
+*/
+@mixin pc() {
+  @media (min-width: $WIDTH-PC + 1px) {
+    @content;
+  }
+}
+
+/*
+* sp
+*/
+@mixin sp() {
+  @media (max-width: $WIDTH-PC) {
+    @content;
+  }
+}
+/*
+* landscape
+*/
+@mixin landscape() {
+  @media screen and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin shadow {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.15);
+}
